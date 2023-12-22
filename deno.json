@@ -1,0 +1,37 @@
+{
+  "tasks": {
+    "start": "deno run -A --unstable --watch=deploy/routes/ deploy/dev.ts"
+  },
+  "lock": false,
+  "imports": {
+    "$fresh/": "https://deno.land/x/fresh@1.6.1/",
+    "$fresh_html/": "https://deno.land/x/html@v1.2.0/",
+
+    "$std": "https://deno.land/std@0.205.0",
+    "$std/": "https://deno.land/std@0.205.0/",
+
+    "preact": "https://esm.sh/preact@10.18.1",
+    "preact/": "https://esm.sh/preact@10.18.1/",
+    "preact-render-to-string": "https://esm.sh/*preact-render-to-string@6.2.2"
+  },
+  "fmt": {
+    "include": ["deploy/", "tests/"],
+    "exclude": ["deploy/static/", "**/*.draft*"],
+    "lineWidth": 80,
+    "indentWidth": 2,
+    "singleQuote": true,
+    "semiColons": true
+  },
+  "lint": {
+    "include": ["deploy/", "tests/"],
+    "exclude": ["deploy/static/", "**/*.draft*"],
+    "rules": {
+      "tags": ["recommended"],
+      "include": ["ban-untagged-todo"],
+      "exclude": []
+    }
+  },
+  "compilerOptions": {
+    "lib": ["dom", "deno.worker"]
+  }
+}
