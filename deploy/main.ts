@@ -13,6 +13,24 @@ import config from './fresh.config.ts';
 import manifest from './fresh.gen.ts';
 
 // ---
+export const warning: Record<string, {
+  hits: bigint;
+  urns: string[];
+}> = {};
+
+export const insight_kv = await Deno.openKv();
+export const insight: {
+  '@total': bigint;
+  '@total-noise-ignored': bigint;
+  timeline: Record<string, { hits: bigint }>;
+} = {
+  '@total': 0n,
+  '@total-noise-ignored': 0n,
+  timeline: {},
+};
+// ---
+
+// ---
 import { insight, insight_kv, warning } from './cron/insight-kv.ts';
 
 Deno.cron('insight-kv', '*/20 * * * *', async () => {

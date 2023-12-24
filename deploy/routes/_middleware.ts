@@ -3,7 +3,8 @@ import { message_response } from './_404.ts';
 import { DEPLOY_SUBPATHS } from '../fresh.config.ts';
 import { Status } from '$std/http/status.ts';
 
-import { insight, warning } from '../cron/insight-kv.ts';
+// import { insight, warning } from '../cron/insight-kv.ts';
+import { insight, warning } from '../main.ts';
 
 export const handler: MiddlewareHandler = (req: Request, ctx: FreshContext) => {
   const req_urn = new URL(req.url).pathname.toLowerCase();
